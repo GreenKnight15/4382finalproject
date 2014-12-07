@@ -1,0 +1,122 @@
+div#photosContainer {
+    background: black;
+    color: white;
+    margin-right:2%;
+    border: 4px ridge green;
+    width: 300px;
+    height: 250px;
+}
+div.photoItem {
+    display: inline-block;
+    width: 120px;
+}
+
+div#profile{
+    width:300px;
+    height:100px;
+    
+}
+
+div#list{
+    border:4px ridge blue;
+    height:100px;
+    width:300px;
+}
+
+div#photoContainer{
+    background: lightgray;
+    color: white;
+    width: 100px;
+    height: 450px;
+}
+div#photoComments {
+    background: lightgray;
+    color: white;
+    width: 400px;
+    height: 450px;
+    margin-left:305px;
+       
+}
+
+
+div#header{
+font-size: 36px;
+margin-left: 100px;
+}
+
+div#footer{
+    margin-top: 10px;
+    padding-top: 220px;
+}
+
+div#photoComments {
+    background: white;
+    color: black;
+    max-height: 500px;
+    overflow-y: scroll;
+ 
+}
+div#pageComments {
+    margin-left: 305px;
+    clear: both;
+    width: 600px;
+    height: 300px;
+    margin-top: -357px;
+}
+div.comment {
+    border: 2px ridge blue;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+img.listPhoto {
+    width: 100px;
+}
+img.mainPhoto {
+    width: 200px;
+    height: 200px;
+    margin-left: 40px;
+}
+.commentBody {
+    background-color:gray;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0;
+}
+.imageTitle {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0
+}
+.commentTitle {
+    font-size: 18px;
+    font-weight: bold;
+}
+.username {
+    font-style: italic;
+    color: blue;
+}
+.subject {
+    font-weight: bold;
+}
+.timestamp {
+    color: green;
+    font-style: italic;
+    font-size: 12px;
+    text-align: right;
+    margin: 0;
+}
+input[type="text"],
+textarea {
+    border: 2px ridge green;
+    border-radius: 5px;
+    padding: 3px;
+    width: 95%;
+}
+input[type="button"] {
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+}
+d

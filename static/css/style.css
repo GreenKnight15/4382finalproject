@@ -1,0 +1,40 @@
+div.form-container{
+    display: inline-block;
+    border:4px ridge green;
+    width:280px;
+    border-radius:12px;
+    margin-left: 35%;
+    margin-top: 10px;
+}
+
+p.form-header{
+    margin:0px;
+    font:24px bold;
+    color: white;
+    background:green;
+    text-align:center;
+}
+
+form{
+    margin:10px;
+}
+
+label{width:80px; display:inline-block;}
+
+input{
+    border: 3px ridge orange;
+    border-radius:5px;
+    padding:3px;
+}
+
+input[type=submit]{
+    font:18px bold;
+    width:120px;
+    color: white;
+    background:green;
+    margin-top:15px;
+    margin-left:85px;
+}
+h1{
+    margin-left: 400px;
+}
