@@ -11,7 +11,7 @@ module.exports = function(app){
         
     app.get('/',function(req,res){
         if(req.session.user){
-            
+
             if(req.session.adminPass == "password"){
                 res.render('prof',{
                 username: req.session.username, 
@@ -26,6 +26,7 @@ module.exports = function(app){
             msg:req.session.msg,
             color:req.session.color,
             role:req.session.role,
+
             });
             
         }else{
@@ -35,7 +36,7 @@ module.exports = function(app){
         
         
     }});
-    
+
     app.get('/user', function(req,res){
         if(req.session.user){
             res.render('user',{msg:req.session.msg});

@@ -24,8 +24,11 @@ var host1 = process.env.IP;
 var port1 = process.env.PORT;
 
 mongoose.connect("mongodb://" + host1 + "/" + port1 + "/" + db );
+//mongoose.connect("mongodb://" + host + ":" + port + "/" + db);
 
-console.log("Connected to db")
+//mongoose.connect("mongodb://" + host + ":" + port );
+
+console.log("Connected to db");
 
 app.engine('.html',require("ejs").__express);
 
@@ -45,6 +48,7 @@ app.use(expressSession({
         collection: 'session'
     })
 }));
+
 
 
 require("./routes")(app);

@@ -16,6 +16,10 @@ exports.signup = function(req,res){
     user.set('name',req.body.name);
     user.set('color',req.body.color);
     user.set('adminPass',req.body.adminPass);
+    user.set('email',req.body.email);
+    user.set('name',req.body.name);
+    user.set('color',req.body.color);
+
     
     user.save(function(err){
         if(err){
@@ -28,7 +32,7 @@ exports.signup = function(req,res){
             req.session.email = user.email;
             req.session.role = user.role;
             req.session.adminPass = user.adminPass;
-            
+
             req.session.msg = "Authinticated as " + user.username;
             res.redirect('/');
         }
