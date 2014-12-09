@@ -11,7 +11,15 @@
                     }
                 else document.getElementById('adminPass').style.display = 'none';
                 }
+            if (document.getElementById('profCheck').checked) 
+                    {
+                        var role = document.getElementById('profCheck').value;
+                    }else if (document.getElementById('studCheck').checked)
+                        {
+                            role = document.getElementById('studCheck').value;
+                        }    
         </script>
+        
     </head>
     <body>
         <h1>Sign up for MyClassroom</h1>
@@ -19,8 +27,8 @@
             <p class='form-header'>Sign up</p>
             <form method='POST'>
                 <div class = radios align = "center">
-                <input type="Radio" name="role" value="Student" onclick="javascript:professorCheck();" id="studCheck" checked>Student</input>
-                <input type="Radio" name="role" value="Professor" onclick="javascript:professorCheck();" id="profCheck" >Professor</input>
+                <input type="Radio" name= "role" value= Student onclick="javascript:professorCheck();" id="studCheck" checked>Student</input>
+                <input type="Radio" name= "role" value= Professor onclick="javascript:professorCheck();" id="profCheck" >Professor</input>
                 </div>
                 <br>
                 <div id = "adminPass" style="display:none">

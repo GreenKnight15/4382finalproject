@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="myApp">
+    <head>
+         <title>MyClassRoom</title>
+        <link rel="stylesheet" href="../static/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="../static/css/comment_style.css" type="text/css" />
+    
+        <style>
+            
+            
+            
+        </style>
+        
+    </head>
+    <body>
+         <div id="header">MyClassroom</div>
+         
+         <div id="studentList" ng-controller="studController" >
+            <div ng-repeat="user in users">
+                <ul>
+                    <span id="name"><li>{{user.name}}<input type="checkbox" ng-model="mustShow" /></li></span> 
+                    <span id="details" ng-show="mustShow"> <li> Username:{{user.username}}</li>
+                    <li> Favorite Color:{{user.color}} </li>
+                    <li> Email:{{user.email}}</li>
+                    <li> Role:{{user.role}}</li> </span>
+                </ul>
+            </div>
+        </div>
+        
+        <div id='footer'>
+            <hr>
+            <a href="/">Back To Profile</a>
+        </div>
+             
+             
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+        <script src="../static/js/my_app.js"></script>
+    </body>
+</html>

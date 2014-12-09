@@ -1,4 +1,5 @@
 <!doctype html>
+<!--Establishes this as an Angular template-->
 <html ng-app="myApp">
     <head>
         <title>MyClassRoom</title>
@@ -11,20 +12,22 @@
         <div ng-controller="myController" >
             <!--<h2>User Feed</h2>-->
             
+<!-- Brings in the user's profile picture -->            
             <div id='photosContainer'>
                 <p class='imageTitle'>{{user.name}} </p>
-                <img class='mainPhoto' src='../static/images/profile-img.jpg' />
+                <img class='mainPhoto' ng-src= "{{user.profilePic}}">
             </div> 
                 <!--<img class='mainPhoto' ng-src='../static/images/{{photos.filename}}'/>-->
             </div>
-
+            
+<!-- Displays the user's information -->
             <div id="profile" ng-controller="myController">
                     <div id="list">
                         <ul>
-                            <li> {{user.username}}</li>
-                            <li> {{user.color}}   </li>
-                            <li> {{user.email}}   </li>
-                            <li> {{user.role}}    </li>
+                            <li>Username: {{user.username}}</li>
+                            <li> Favorite Color:{{user.color}}   </li>
+                            <li> E-mail: {{user.email}}   </li>
+                            <li> Role: {{user.role}}    </li>
                         </ul>
                     </div>
                 </div>
@@ -61,26 +64,25 @@
                 </div>
             </div>
         </div>
-
-        <div id="studentList" ng-controller="profController" >
-            <div ng-repeat="stud in students">
-            </div>
-        </div>
+        
 
         <div id="footer">
 
             
            
         <hr>
+        <!-- Links -->     
         <a href='/logout'>Logout</a>
-        <a href='/user'>Edit User</a> 
+        <a href='/user'>Edit User</a>
+        <a href='/showstudlist'>View All Students</a>
         <a>You are logged in as <%= username %></a>
         <!--<%= msg %>-->
         </div>
 
 
-
+<!-- Brings in Angular to make things work! -->   
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+<!-- Imports the Angular controllers -->           
         <script src="../static/js/my_app.js"></script>
     </body>
     </html>

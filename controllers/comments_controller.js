@@ -26,7 +26,7 @@ exports.addComment = function(req,res){
             var User = mongoose.model('User');
             User.findOne({_id: req.session.user})
             .exec(function(err,user){
-            newComment.username = user.username
+            newComment.username = user.username;
             });
         }
     });
@@ -49,7 +49,7 @@ function addComment(req,res, commentThread,currentComment, parentId,newComment){
             }
         }
     }
-};
+}
 
 function updateCommentThread(req,res, commentThread){
     CommentThread.update({_id:commentThread.id},

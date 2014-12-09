@@ -1,4 +1,5 @@
 <!doctype html>
+<!--Establishes this as an Angular template-->
 <html ng-app="myApp">
     <head>
         <title>MyClassRoom</title>
@@ -10,39 +11,33 @@
         <hr>
         <div ng-controller="myController" >
             <!--<h2>User Feed</h2>-->
-            
+
+<!-- Brings in the user's profile picture -->            
             <div id='photosContainer'>
                 <p class='imageTitle'>{{user.name}} </p>
-                <img class='mainPhoto' src='../static/images/profile-img.jpg' />
+                <img class='mainPhoto' ng-src="{{user.profilePic}}">
+                <!--'../static/images/profile-img.jpg'-->
             </div> 
                 <!--<img class='mainPhoto' ng-src='../static/images/{{photos.filename}}'/>-->
             </div>
-
+            
+<!-- Displays the user's information -->
             <div id="profile" ng-controller="myController">
                     <div id="list">
                         <ul>
-                            <li> {{user.username}}</li>
-                            <li> {{user.color}} </li>
-                            <li> {{user.email}}</li>
-                            <li> {{user.role}}</li>
+                            <li> Username:{{user.username}}</li>
+                            <li> Favorite Color:{{user.color}} </li>
+                            <li> Email:{{user.email}}</li>
+                            <li> Role: {{user.role}}</li>
                         </ul>
                     </div>
                 </div>
 
-            <!--
-            <div ng-controller="photoController">
-
-
-            <div id="photoComments" ng-init="addComment=false;replySubject='';replyBody=''">
-                <div class="comment" ng-include="'comment_thread.html'"></div>
-            </div>
-            </div>
-        -->            
-       
+<!--broken comments-------------------->
         <div ng-controller="photoController">
             <div id="pageComments" ng-init="addComment=false; replySubject='';replyBody=''" >
                 <div class='comment' >
-                    <!--<span class="commentTitle">{{commentThread.title}}</span>-->
+                    <span class="commentTitle">{{commentThread.title}}</span>
                     <span class="commentTitle">User Feed</span>
                     <input type="button" ng-show="addComment==false" value="Add Comment" ng-click="addComment=true"></input>
                      <form ng-show="addComment==true">
@@ -62,13 +57,10 @@
             </div>
         </div>
 
-
-
         <div id="footer">
 
-            
-           
         <hr>
+        <!-- Links -->     
         <a href='/logout'>Logout</a>
         <a href='/user'>Edit User</a> 
         <a>You are logged in as <%= username %></a>
@@ -76,8 +68,9 @@
         </div>
 
 
-
+<!-- Brings in Angular to make things work! -->   
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+<!-- Imports the Angular controllers -->           
         <script src="../static/js/my_app.js"></script>
     </body>
     </html>

@@ -1,30 +1,45 @@
 <!doctype html>
+<!--Establishes this as an Angular template-->
 <html ng-app="myApp">
     <head>
         <title>MyClassRoom</title>
         <link rel="stylesheet" href="../static/css/style.css" type="text/css" />
     </head>
+    
+<!-- Creates a form for the user to edit -->
     <body>
         <div class="form-container" ng-controller="myController">
             <p class='form-header'>Update User Profile</p>
             <form method='POST' action='/user/update'>
+                
+                
+                <!------for some reason we cant edit name and username ran out of time -->
+                <label>Full Name:</label>
+                     <input type='text' name='name' ng-model='user.name' > <br><br>
                 <label>Username:</label> 
-                    <input type='text' name='username' ng-model='user.username' > <br>
+                    <input type='text' name='username' ng-model='user.username' > <br><br>
                 <label>Email:</label> 
-                    <input type='email' name='email' ng-model='user.email'> <br>
+                    <input type='email' name='email' ng-model='user.email'> <br><br>
                 <label>Favorite Color:</label> 
-                    <input type='text' name='color' ng-model='user.color'> <br>
-                <input type="submit" value="Save" >
+                    <input type='text' name='color' ng-model='user.color'> <br><br>
+                <label>Profile Pic URL:</label>
+                    <input type='text' name='profilePic' ng-model='user.profilePic'> <br>
+                <input type="submit" value="Save">    
             </form>
-           
+<!-- Delete function -->
             <form method='POST' action='/user/delete'>
                 <input type="submit" value="Delete User"/>
             </form>
+            
+<!-- Links -->            
             <a href="/">Back to Profile</a>
             <hr><%= msg %>
             <hr>{{error}}
         </div>
+        
+<!-- Brings in Angular to make things work! -->        
          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+<!-- Imports the Angular controllers -->         
         <script type="text/javascript" src="./static/js/my_app.js"></script>
     </body>
 </html>

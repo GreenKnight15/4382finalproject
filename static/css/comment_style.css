@@ -1,5 +1,5 @@
 div#photosContainer {
-    background: black;
+    background: gray;
     color: white;
     margin-right:2%;
     border: 4px ridge green;
@@ -19,7 +19,7 @@ div#profile{
 
 div#list{
     border:4px ridge blue;
-    height:100px;
+    height:125px;
     width:300px;
 }
 
@@ -38,6 +38,11 @@ div#photoComments {
        
 }
 
+ul
+{
+list-style-type: none;
+}
+
 
 div#header{
 font-size: 36px;
@@ -47,6 +52,10 @@ margin-left: 100px;
 div#footer{
     margin-top: 10px;
     padding-top: 220px;
+}
+
+div#studentList{
+    border: 2px ridge blue;
 }
 
 div#photoComments {
@@ -75,7 +84,7 @@ img.listPhoto {
 img.mainPhoto {
     width: 200px;
     height: 200px;
-    margin-left: 40px;
+    margin-left: 50px;
 }
 .commentBody {
     background-color:gray;
@@ -119,4 +128,3 @@ input[type="button"] {
     color: white;
     border-radius: 5px;
 }
-d

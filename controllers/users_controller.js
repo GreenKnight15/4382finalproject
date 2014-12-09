@@ -7,6 +7,7 @@ function hashPW(pwd){
         digest('base64').toString();
 }
 
+// sets details when users signs up
 exports.signup = function(req,res){
     var user = new User({username:req.body.username});
     user.set('hashed_password', hashPW(req.body.password));
@@ -16,11 +17,8 @@ exports.signup = function(req,res){
     user.set('name',req.body.name);
     user.set('color',req.body.color);
     user.set('adminPass',req.body.adminPass);
-    user.set('email',req.body.email);
-    user.set('name',req.body.name);
-    user.set('color',req.body.color);
-
-    
+    user.set('profilePic',req.body.profilePic);
+//saves all   
     user.save(function(err){
         if(err){
             res.session.error = err;
@@ -32,13 +30,15 @@ exports.signup = function(req,res){
             req.session.email = user.email;
             req.session.role = user.role;
             req.session.adminPass = user.adminPass;
+            req.session.profilePic = user.profilePic;
+            req.session.name = user.name;
 
             req.session.msg = "Authinticated as " + user.username;
             res.redirect('/');
         }
     });
 };
-
+//checks login compared to database/authentication
 exports.login = function(req,res){
     User.findOne({username: req.body.username})
     .exec(function(err,user){
@@ -52,6 +52,10 @@ exports.login = function(req,res){
             req.session.username = user.username;
             req.session.color = user.color;
             req.session.email = user.email;
+            req.session.role = user.role;
+            req.session.adminPass = user.adminPass;
+            req.session.name = user.name;
+            
             
             req.session.msg = "Authinticated as "+ user.username;
             res.redirect('/');
@@ -68,6 +72,7 @@ exports.login = function(req,res){
 });
 };
 
+//pushes data requested from user profile
 exports.getUserProfile = function(req,res){
     User.findOne({ _id: req.session.user})
     .exec(function(err,user){
@@ -78,12 +83,16 @@ exports.getUserProfile = function(req,res){
         }
     });
 };
-
+//when user changes profile it is saved here
 exports.updateUser = function(req,res){
     User.findOne({ _id: req.session.user})
     .exec(function(err,user){
+//Unable to update the user Name or Username at this time
+        user.set('name',req.body.name);
+        user.set('username',req.body.name);
         user.set('email',req.body.email);
         user.set('color',req.body.color);
+        user.set('profilePic',req.body.profilePic);
         user.save(function(err){
             if(err){
                 res.session.error = err;
@@ -94,7 +103,7 @@ exports.updateUser = function(req,res){
         });
     });
 };
-
+// Finds user by session and destroys the user
 exports.deleteUser = function(req,res){
     User.findOne({ _id: req.session.user})
     .exec(function(err,user){
@@ -117,3 +126,14 @@ exports.deleteUser = function(req,res){
     });
 };
 
+//sends data to bind with student list
+exports.list = function(req,res){
+    User.find({role :"Student"})
+    .exec(function(err,users){
+        if(users){
+            res.json(users);
+        } else {
+            alert("Error");
+        }
+    });
+};

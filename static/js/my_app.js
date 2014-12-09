@@ -1,8 +1,9 @@
-
+//declaring module myApp that will be used in angular templates
 var app = angular.module('myApp', []);
 
  app.controller('myController', ['$scope', '$http',
 
+//Brings in all the data from user and pushes it to the $scope
   function($scope, $http){
   $http.get('/user/profile')
     .success(function(data,status,headers,config){
@@ -49,10 +50,10 @@ function CommentObj($http) {
 
 app.service('commentSrv', ['$http', CommentObj]);
 
-
+//controller that is used for comments that dont work
 app.controller('photoController', ['$scope', '$http', 'commentSrv',
     function($scope, $http, commentSrv) {
-        $http.get('/photos')
+        $http.get('/')
             .success(function(data, status, headers, config) {
                 $scope.photos = data;
                 $scope.photo = $scope.photos[0];
@@ -101,10 +102,10 @@ app.controller('photoController', ['$scope', '$http', 'commentSrv',
     }
 ]);
 
-
+//unneeds contoller chapter 27
 app.controller('pageController', ['$scope', '$http', 'commentSrv',
     function($scope, $http, commentSrv) {
-        $http.get('/page', {
+        $http.get('/', {
                 params: {
                     pageName: "Photos Page"
                 }
@@ -141,3 +142,21 @@ app.controller('pageController', ['$scope', '$http', 'commentSrv',
         };
     }
 ]);
+
+
+app.controller('studController', ['$scope', '$http',
+//Gets all of the data from users and puts it into $scope
+  function($scope, $http){
+  $http.get('/studlist')
+    .success(function(data,status,headers,config){
+
+        $scope.users = data;
+        //$scope.user = $scope.users[0];
+        $scope.error = "";
+    })
+    .error(function(data,status,headers,config){
+        $scope.users = {};
+        $scope.error = data;
+        alert("error");
+    });
+ }]);

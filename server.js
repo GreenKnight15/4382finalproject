@@ -1,12 +1,15 @@
+//requre npm node modules 
 var express = require("express"),
-app = express(),
 bodyParser = require("body-parser"),
 cookieParser = require("cookie-parser"),
 expressSession = require("express-session"),
 mongoStore = require("connect-mongo")({session: expressSession}), //mongoStore
+mongoose = require("mongoose"),
 
-mongoose = require("mongoose");
+//declaring express to be used below
+app = express();
 
+//setting variable ports for local and cloud9
 
 //var port = process.env.PORT;
 //var host = process.env.IP;
@@ -23,13 +26,17 @@ require("./models/user_model.js");
 var host1 = process.env.IP;
 var port1 = process.env.PORT;
 
+//connecting to mongodb with mongoose
+
 mongoose.connect("mongodb://" + host1 + "/" + port1 + "/" + db );
 //mongoose.connect("mongodb://" + host + ":" + port + "/" + db);
 
 //mongoose.connect("mongodb://" + host + ":" + port );
 
+//print when connected
 console.log("Connected to db");
 
+//setting default paths
 app.engine('.html',require("ejs").__express);
 
 app.set('views', __dirname + '/views');
@@ -50,7 +57,7 @@ app.use(expressSession({
 }));
 
 
-
 require("./routes")(app);
+//listen to port
 app.listen(port1);
 console.log("running server");
